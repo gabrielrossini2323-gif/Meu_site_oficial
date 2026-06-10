@@ -1,0 +1,10 @@
+/* Coloque todo o conteúdo que estava dentro da tag <style> aqui */
+:root {
+    --bg-color: #080808;
+    /* ... o restante das suas variáveis e estilos */
+}
+
+body {
+    background-color: var(--bg-color);
+    /* ... restante do CSS */
+}
