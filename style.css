@@ -108,19 +108,38 @@ body {
     padding: 0 2rem;
 }
 
+/* --- NOVO LAYOUT DO GRID (Mobile e Desktop) --- */
 .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem;
+    display: flex;
+    flex-direction: column; /* Celular: empilha tudo na ordem do HTML */
+    gap: 1.5rem;
 }
 
 @media (min-width: 900px) {
     .hero-grid {
+        display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        /* Define as áreas para organizar os blocos na tela grande */
+        grid-template-areas: 
+            "gallery titles"
+            "gallery details";
+    }
+
+    .gallery-wrapper {
+        grid-area: gallery;
+    }
+
+    .product-titles {
+        grid-area: titles;
+    }
+
+    .product-details {
+        grid-area: details;
     }
 }
 
-/* Galeria de Imagens - Correção Aplicada Aqui */
+/* Galeria de Imagens */
 .gallery-wrapper {
     display: flex;
     flex-direction: column;
@@ -173,19 +192,21 @@ body {
     border-color: var(--gold-primary);
 }
 
-/* Informações do Produto */
+/* Informações do Produto (Títulos e Detalhes) */
 .category-tag {
     color: var(--gold-primary);
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 600;
+    display: inline-block;
+    margin-bottom: 0.5rem;
 }
 
 .product-title {
     font-size: 2.5rem;
     line-height: 1.2;
-    margin: 0.5rem 0 1rem;
+    margin: 0 0 1rem;
 }
 
 .gold-gradient-text {
@@ -198,7 +219,13 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem; /* Menor no celular */
+}
+
+@media (min-width: 900px) {
+    .rating-bar {
+        margin-bottom: 2rem; /* Maior no desktop */
+    }
 }
 
 .stars-gold {
@@ -223,165 +250,3 @@ body {
 .original-price {
     text-decoration: line-through;
     color: var(--text-muted);
-}
-
-.current-price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    margin: 0.5rem 0;
-}
-
-.currency {
-    font-size: 1.2rem;
-    color: var(--text-main);
-}
-
-.price-value {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--text-main);
-}
-
-.payment-terms {
-    color: var(--gold-primary);
-    font-size: 0.9rem;
-}
-
-.product-description {
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    font-size: 1rem;
-}
-
-/* Benefícios */
-.luxury-benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-}
-
-.benefit-card {
-    background: var(--surface-dark);
-    border: 1px solid var(--glass-border);
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.benefit-title {
-    display: block;
-    color: var(--text-main);
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-
-.benefit-sub {
-    display: block;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    margin-top: 0.3rem;
-}
-
-/* Botões */
-.cta-actions-group {
-    display: flex;
-    gap: 1rem;
-}
-
-.btn-secondary-luxury, .btn-primary-luxury {
-    flex: 1;
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-secondary-luxury {
-    background: transparent;
-    color: var(--text-main);
-    border: 1px solid var(--glass-border);
-}
-
-.btn-secondary-luxury:hover {
-    border-color: var(--gold-primary);
-    color: var(--gold-primary);
-}
-
-.btn-primary-luxury {
-    background: var(--gold-primary);
-    color: #000;
-    border: none;
-}
-
-.btn-primary-luxury:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-}
-
-/* Tabela de Especificações */
-.specs-section {
-    margin-top: 6rem;
-}
-
-.specs-section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 3rem;
-}
-
-.specs-table-glass {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.specs-row {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--glass-border);
-}
-
-.specs-row:last-child {
-    border-bottom: none;
-}
-
-.spec-name {
-    color: var(--gold-primary);
-    font-weight: 600;
-}
-
-/* Footer e Toast */
-.luxury-footer {
-    text-align: center;
-    padding: 3rem 2rem;
-    color: var(--text-muted);
-    border-top: 1px solid var(--glass-border);
-    font-size: 0.85rem;
-    margin-top: 4rem;
-}
-
-.toast-notification-container {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: var(--surface-dark);
-    border-left: 4px solid var(--gold-primary);
-    color: var(--text-main);
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-    transform: translateX(150%);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 1000;
-}
-
-.toast-notification-container.show {
-    transform: translateX(0);
-}
