@@ -4,57 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>i2GO Pro Series | Carbon Gold Edition</title>
-    <!-- Fontes Premium -->
+    <!-- Fontes Premium via Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- CSS Externo -->
+    <!-- Folha de Estilo Externa -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Navegação de Luxo -->
     <header class="luxury-header">
         <div class="header-container">
-            <a href="#" class="brand-logo">i2GO <span class="gold-text">PRO</span></a>
-            <nav class="nav-menu">
+            <a href="#" class="brand-logo" aria-label="Página Inicial i2GO">i2GO <span class="gold-text">PRO</span></a>
+            <nav class="nav-menu" aria-label="Navegação Principal">
                 <a href="#especificacoes" class="nav-link">Especificações</a>
                 <a href="#design" class="nav-link">Design</a>
                 <a href="#suporte" class="nav-link">Suporte</a>
             </nav>
-            <button class="cart-trigger" id="cart-btn">
+            <button class="cart-trigger" aria-label="Ver Carrinho" id="cart-btn">
                 <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M2.25 3h1.382a1.5 1.5 0 0 1 1.443 1.09l1.85 6.78a1.5 1.5 0 0 0 1.442 1.1h8.318a1.5 1.5 0 0 0 1.432-1.054L20.25 6H5.25" stroke-linecap="round" stroke-linejoin="round"/>
                     <circle cx="9" cy="18.5" r="1.5" fill="currentColor"/>
                     <circle cx="17" cy="18.5" r="1.5" fill="currentColor"/>
                 </svg>
-                <span class="cart-counter" id="cart-counter">0</span>
+                <span class="cart-counter" id="cart-counter" aria-hidden="true">0</span>
             </button>
         </div>
     </header>
 
     <main class="main-content">
+        <!-- Seção Hero do Produto -->
         <section class="product-hero-section">
             <div class="hero-grid">
                 
-                <!-- Galeria Corrigida -->
+                <!-- Galeria de Imagens Interativa -->
                 <div class="gallery-wrapper">
                     <div class="main-preview-glass">
-                        <img id="main-product-image" src="Carregadorturbo.png" alt="i2GO Power Bank 10K PD Gold Edition" class="product-image">
+                        <img id="main-product-image" src="Carregadorturbo.png" alt="i2GO Power Bank 10K PD Gold Edition - Vista Frontal" class="product-image active">
                     </div>
-                    <div class="thumbnail-row">
-                        <button class="thumbnail-btn active" data-image="Carregadorturbo.png">
-                            <img src="Carregadorturbo.png" alt="Vista Frontal">
+                    <div class="thumbnail-row" role="tablist" aria-label="Galeria de Imagens">
+                        <button class="thumbnail-btn active" role="tab" aria-selected="true" data-image="Carregadorturbo.png" aria-label="Ver imagem frontal">
+                            <img src="Carregadorturbo.png" alt="Miniatura Frontal">
+                        </button>
+                        <button class="thumbnail-btn" role="tab" aria-selected="false" data-image="Carregadorturbo.png" aria-label="Ver imagem em ângulo">
+                            <img src="Carregadorturbo.png" alt="Miniatura Ângulo">
                         </button>
                     </div>
                 </div>
 
+                <!-- Painel de Informações -->
                 <div class="product-info-panel">
                     <span class="category-tag">Edição Limitada Carbon Gold</span>
                     <h1 class="product-title">Power Bank 10K PD <br><span class="gold-gradient-text">Pro Series 20W</span></h1>
                     
                     <div class="rating-bar">
-                        <div class="stars-gold">★★★★★</div>
-                        <span class="rating-text">4.9 (142 avaliações)</span>
+                        <div class="stars-gold" aria-hidden="true">★★★★★</div>
+                        <span class="rating-text">4.9 (142 avaliações exclusivas)</span>
                     </div>
 
                     <div class="price-box-glass">
@@ -63,22 +69,72 @@
                             <span class="currency">R$</span>
                             <span class="price-value">139,90</span>
                         </div>
+                        <p class="payment-terms">Disponível em até 3x de R$ 46,63 sem juros</p>
                     </div>
 
                     <p class="product-description">
-                        Uma obra de engenharia refinada. Revestido com fibra de carbono, 20W de potência e visor LED digital.
+                        Uma obra de engenharia refinada para quem exige energia com estilo. Revestido com textura de fibra de carbono fosca, equipado com saída Turbo USB-C Power Delivery de 20W e visor LED digital integrado de alta definição.
                     </p>
+
+                    <div class="luxury-benefits-grid">
+                        <div class="benefit-card">
+                            <span class="benefit-title">20W PD</span>
+                            <span class="benefit-sub">Carga Ultra Rápida</span>
+                        </div>
+                        <div class="benefit-card">
+                            <span class="benefit-title">10.000mAh</span>
+                            <span class="benefit-sub">Polímero Premium</span>
+                        </div>
+                        <div class="benefit-card">
+                            <span class="benefit-title">3 Saídas</span>
+                            <span class="benefit-sub">Multi-Dispositivos</span>
+                        </div>
+                    </div>
 
                     <div class="cta-actions-group">
                         <button class="btn-secondary-luxury" id="add-to-cart-btn">Adicionar ao Carrinho</button>
                         <button class="btn-primary-luxury" id="buy-now-btn">Comprar Agora</button>
                     </div>
                 </div>
+
+            </div>
+        </section>
+
+        <!-- Detalhes Técnicos -->
+        <section id="especificacoes" class="specs-section">
+            <h2 class="specs-section-title">Especificações <span class="gold-text">Técnicas</span></h2>
+            <div class="specs-table-glass">
+                <div class="specs-row">
+                    <span class="spec-name">Capacidade Nominal</span>
+                    <span class="spec-detail">10.000 mAh (37Wh de alta densidade)</span>
+                </div>
+                <div class="specs-row">
+                    <span class="spec-name">Saída USB-C (PD)</span>
+                    <span class="spec-detail">5V/3A, 9V/2.22A, 12V/1.67A (20W Máx)</span>
+                </div>
+                <div class="specs-row">
+                    <span class="spec-name">Saídas USB-A (QC)</span>
+                    <span class="spec-detail">2x Saídas Quick Charge inteligentes independentes</span>
+                </div>
+                <div class="specs-row">
+                    <span class="spec-name">Display de Controle</span>
+                    <span class="spec-detail">Tela LED circular integrada para monitoramento em tempo real</span>
+                </div>
+                <div class="specs-row">
+                    <span class="spec-name">Garantia Oficial</span>
+                    <span class="spec-detail">3 anos de cobertura estendida i2GO PRO</span>
+                </div>
             </div>
         </section>
     </main>
 
-    <div class="toast-notification-container" id="toast-container"></div>
+    <footer class="luxury-footer">
+        <p>&copy; 2026 i2GO PRO. Desenvolvido para experiências exclusivas. Todas as marcas registradas pertencem aos seus respectivos proprietários.</p>
+    </footer>
+
+    <!-- Notificação Toast -->
+    <div class="toast-notification-container" id="toast-container" role="alert" aria-live="polite"></div>
+
     <script src="main.js" defer></script>
 </body>
 </html>
